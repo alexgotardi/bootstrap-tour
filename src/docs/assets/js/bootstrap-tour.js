@@ -269,7 +269,7 @@
           if (!($element.data('bs.popover') || $element.data('popover'))) {
             $element = $('body');
           }
-          $element.popover('destroy').removeClass("tour-" + _this._options.name + "-element tour-" + _this._options.name + "-" + i + "-element").removeData('bs.popover').focus();
+          $element.popover('hide').removeClass("tour-" + _this._options.name + "-element tour-" + _this._options.name + "-" + i + "-element").removeData('bs.popover').focus();
           if (step.reflex) {
             $(step.reflexElement).removeClass('tour-step-element-reflex').off("" + (_this._reflexEvent(step.reflex)) + ".tour-" + _this._options.name);
           }
@@ -583,7 +583,7 @@
         template: step.template,
         selector: step.element
       }).popover('show');
-      $tip = $element.data('bs.popover') ? $element.data('bs.popover').tip() : $element.data('popover').tip();
+      $tip = $element.data('bs.popover') ? $($element.data('bs.popover').tip) : $($element.data('popover').tip);
       $tip.attr('id', step.id);
       this._focus($tip, $element, step.next < 0);
       this._reposition($tip, step);
